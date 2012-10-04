@@ -43,6 +43,7 @@ function main() {
     );
 
     betaApp.addCssToPage('https://raw.github.com/cnkt/eksi-beta/master/ui/js/iris/iris.min.css');
+    betaApp.addCssToPage('https://raw.github.com/cnkt/eksi-beta/master/ui/js/twitter-bootstrap/css/bootstrap.min.css');
 
     $('body').on('click', '#open-beta-modal', function(e) {
         e.preventDefault();
