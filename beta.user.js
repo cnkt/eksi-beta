@@ -16,8 +16,19 @@ function addJQuery(callback) {
 }
 
 function main() {
-    addScriptToPage('https://raw.github.com/cnkt/eksi-beta/master/ui/js/twitter-bootstrap/js/bootstrap-modal.js');
-    addScriptToPage('https://raw.github.com/cnkt/eksi-beta/master/ui/js/iris/iris.js');
+    $.getScript(
+        "https://raw.github.com/cnkt/eksi-beta/master/ui/js/yepnope.js",
+        function() {
+            yepnope({
+                load: [
+                    'https://raw.github.com/cnkt/eksi-beta/master/ui/js/twitter-bootstrap/js/bootstrap-modal.js',
+                    '//ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/jquery-ui.min.js',
+                    'https://raw.github.com/cnkt/eksi-beta/master/ui/js/iris/iris.js'
+
+                ]
+            })
+        }
+    );
 
     addCssToPage('https://raw.github.com/cnkt/eksi-beta/master/ui/js/iris/iris.min.css');
 
@@ -43,14 +54,6 @@ function main() {
         $('body, #top-bar, #index-section, #content-section').css({
             "background-color": color
         });
-    }
-
-    function addScriptToPage(url)
-    {
-        var script = document.createElement( 'script' );
-        script.type = 'text/javascript';
-        script.src = url;
-        $("head").append( script );
     }
 
     function addCssToPage(url)
