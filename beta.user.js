@@ -16,6 +16,7 @@ function addJQuery(callback) {
 }
 
 function main() {
+
     $('body').on('click', '#open-beta-modal', function(e) {
         e.preventDefault();
     });
@@ -38,6 +39,14 @@ function main() {
         $('body, #top-bar, #index-section, #content-section').css({
             "background-color": color
         });
+    }
+
+    function addScriptToPage(url)
+    {
+        var script = document.createElement( 'script' );
+        script.type = 'text/javascript';
+        script.src = url;
+        $("head").append( script );
     }
 }
 
