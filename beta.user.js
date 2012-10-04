@@ -16,6 +16,18 @@ function addJQuery(callback) {
 }
 
 function main() {
+    betaApp = {
+        changePageBgColor: function(color) {
+            $('body, #top-bar, #index-section, #content-section').css({
+                "background-color": color
+            });
+        },
+
+        addCssToPage: function(url) {
+            $('head').append('<link rel="stylesheet" href="' + url + '" type="text/css" />');
+        }
+    };
+
     $.getScript(
         "https://raw.github.com/cnkt/eksi-beta/master/ui/js/yepnope.js",
         function() {
@@ -48,20 +60,6 @@ function main() {
     }
 
     betaApp.changePageBgColor('#ccc');
-
-    betaApp = {
-        changePageBgColor: function(color) {
-            $('body, #top-bar, #index-section, #content-section').css({
-                "background-color": color
-            });
-        },
-
-        addCssToPage: function(url) {
-            $('head').append('<link rel="stylesheet" href="' + url + '" type="text/css" />');
-        }
-    }
-
-
 }
 
 addJQuery(main);
