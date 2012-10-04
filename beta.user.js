@@ -30,7 +30,7 @@ function main() {
         }
     );
 
-    addCssToPage('https://raw.github.com/cnkt/eksi-beta/master/ui/js/iris/iris.min.css');
+    betaApp.addCssToPage('https://raw.github.com/cnkt/eksi-beta/master/ui/js/iris/iris.min.css');
 
     $('body').on('click', '#open-beta-modal', function(e) {
         e.preventDefault();
@@ -47,17 +47,19 @@ function main() {
         });
     }
 
-    changePageBgColor('#ccc');
+    betaApp.changePageBgColor('#ccc');
 
-    function changePageBgColor(color)
-    {
+
+}
+
+betaApp = {
+    changePageBgColor: function(color) {
         $('body, #top-bar, #index-section, #content-section').css({
             "background-color": color
         });
-    }
+    },
 
-    function addCssToPage(url)
-    {
+    addCssToPage: function(url) {
         $('head').append('<link rel="stylesheet" href="' + url + '" type="text/css" />');
     }
 }
