@@ -46,11 +46,8 @@ function main() {
 
     $('body').on('click', '#open-beta-modal', function(e) {
         e.preventDefault();
-        $.get('https://raw.github.com/cnkt/eksi-beta/modal-content.html', function(data) {
-            $('body').append(data);
-            $modal = $('#beta-modal');
-            $modal.modal('show');
-        });
+        $modal = $('<div class="modal hide fade" id="beta-modal"> <div class="modal-header"> <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button> <h3>Beta++</h3> </div> <div class="modal-body"> <h2>Arkaplan Rengi</h2> <input id="background-chooser"> </div> </div> ');
+        $modal.modal('show');
     });
 
     $('#top-navigation > ul').prepend(
