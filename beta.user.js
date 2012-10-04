@@ -16,12 +16,20 @@ function addJQuery(callback) {
 }
 
 function main() {
-    $('#aside').remove();
+    if ($('#topic').length > 0) {
+        $('#aside').remove();
+        $('#content-section').css({
+            "width": '100%'
+        });
+    }
+
+    changePageBgColor('#ccc');
+}
+
+function changePageBgColor(color)
+{
     $('body, #top-bar, #index-section, #content-section').css({
-        "background-color": '#ccc'
-    });
-    $('#content-section').css({
-        "width": '100%'
+        "background-color": color
     });
 }
 
