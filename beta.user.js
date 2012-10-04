@@ -17,6 +17,9 @@ function addJQuery(callback) {
 
 function main() {
     addScriptToPage('https://raw.github.com/cnkt/eksi-beta/master/ui/js/twitter-bootstrap/js/bootstrap-modal.js');
+    addScriptToPage('https://raw.github.com/cnkt/eksi-beta/master/ui/js/iris/iris.js');
+
+    addCssToPage('https://raw.github.com/cnkt/eksi-beta/master/ui/js/iris/iris.min.css');
 
     $('body').on('click', '#open-beta-modal', function(e) {
         e.preventDefault();
