@@ -16,6 +16,14 @@ function addJQuery(callback) {
 }
 
 function main() {
+    $('body').on('click', '#open-beta-modal', function(e) {
+        e.preventDefault();
+    });
+
+    $('#top-navigation > ul').prepend(
+        "<li><a href='#' id='open-beta-modal'>Beta++</li>"
+    );
+
     if ($('#topic').length > 0) {
         $('#aside').remove();
         $('#content-section').css({
