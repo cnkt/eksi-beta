@@ -24,13 +24,13 @@ function main() {
     }
 
     changePageBgColor('#ccc');
-}
 
-function changePageBgColor(color)
-{
-    $('body, #top-bar, #index-section, #content-section').css({
-        "background-color": color
-    });
+    function changePageBgColor(color)
+    {
+        $('body, #top-bar, #index-section, #content-section').css({
+            "background-color": color
+        });
+    }
 }
 
 addJQuery(main);
