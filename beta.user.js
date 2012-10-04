@@ -46,6 +46,11 @@ function main() {
 
     $('body').on('click', '#open-beta-modal', function(e) {
         e.preventDefault();
+        $.get('https://raw.github.com/cnkt/eksi-beta/modal-content.html', function(data) {
+            $('body').append(data);
+            $modal = $('#beta-modal');
+            $modal.modal('show');
+        });
     });
 
     $('#top-navigation > ul').prepend(
