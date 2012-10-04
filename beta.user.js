@@ -24,9 +24,15 @@ function main() {
         },
 
         addCssToPage: function(url) {
-            $('head').append('<link rel="stylesheet" href="' + url + '" type="text/css" />');
+            $("<link>")
+                .appendTo($('head'))
+                .attr({type : 'text/css', rel : 'stylesheet'})
+                .attr('href', url);
         }
     };
+
+    betaApp.addCssToPage('https://raw.github.com/cnkt/eksi-beta/master/ui/js/iris/iris.min.css');
+    betaApp.addCssToPage('https://raw.github.com/cnkt/eksi-beta/master/ui/js/twitter-bootstrap/css/bootstrap.min.css');
 
     $.getScript(
         "https://raw.github.com/cnkt/eksi-beta/master/ui/js/yepnope.js",
@@ -42,10 +48,7 @@ function main() {
         }
     );
 
-    betaApp.addCssToPage('https://raw.github.com/cnkt/eksi-beta/master/ui/js/iris/iris.min.css');
-    betaApp.addCssToPage('https://raw.github.com/cnkt/eksi-beta/master/ui/js/twitter-bootstrap/css/bootstrap.min.css');
-
-    $('body').append('<div class="modal hide fade" id="beta-modal"> <div class="modal-header"> <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button> <h3>Beta++</h3> </div> <div class="modal-body"> <h2>Arkaplan Rengi</h2> <input id="background-chooser"> </div> </div> ');
+    //$('body').append('<div class="modal hide fade" id="beta-modal"> <div class="modal-header"> <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button> <h3>Beta++</h3> </div> <div class="modal-body"> <h2>Arkaplan Rengi</h2> <input id="background-chooser"> </div> </div> ');
 
 
     $('body').on('click', '#open-beta-modal', function(e) {
