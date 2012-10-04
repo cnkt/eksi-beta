@@ -16,6 +16,7 @@ function addJQuery(callback) {
 }
 
 function main() {
+    addScriptToPage('https://raw.github.com/cnkt/eksi-beta/master/ui/js/twitter-bootstrap/js/bootstrap-modal.js');
 
     $('body').on('click', '#open-beta-modal', function(e) {
         e.preventDefault();
@@ -47,6 +48,11 @@ function main() {
         script.type = 'text/javascript';
         script.src = url;
         $("head").append( script );
+    }
+
+    function addCssToPage(url)
+    {
+        $('head').append('<link rel="stylesheet" href="' + url + '" type="text/css" />');
     }
 }
 
