@@ -5784,5 +5784,5 @@ a.badge:hover {
 
 
 .iris-picker .iris-strip {
-    position: absolute;
+    position: absolute !important;
 }
