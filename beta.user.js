@@ -62,10 +62,12 @@ function main() {
         function() {
             yepnope({
                 load: [
-                    'https://raw.github.com/Automattic/Iris/master/src/iris.min.css',
                     'https://raw.github.com/cnkt/eksi-beta/master/ui/js/twitter-bootstrap/js/bootstrap-modal.js',
                     '//ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/jquery-ui.min.js',
-                    'https://raw.github.com/Automattic/Iris/master/dist/iris.js'
+                    'https://raw.github.com/Automattic/Iris/master/dist/iris.js',
+
+                    'https://raw.github.com/Automattic/Iris/master/src/iris.min.css',
+                    'https://raw.github.com/cnkt/eksi-beta/master/style.css'
                 ],
                 complete: function() {
                     betaApp.allJsLoaded();
