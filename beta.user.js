@@ -96,7 +96,7 @@ function main() {
             var $firstEntry = $('.content').eq(0);
             var selectorTemplate = '<div class="eksibeta-theme-sample"><div class="theme-code hide">%themeCode%</div><div class="theme-name">%themeName%</div><div class="bg-color" style="background-color: %bg-color%;"></div><div class="font-color" style="background-color: %font-color%;"></div><div class="link-color" style="background-color: %link-color%;"></div></div>';
 
-            var selectorHTML = '';
+            var selectorHTML = "<div class='clearfix'></div>";
 
             $.each(betaApp.themes, function(themeCode, theme) {
                 sample = selectorTemplate.replace('%themeName%', theme.name);
@@ -135,12 +135,25 @@ function main() {
             $('#page-colors').text(style);
         },
 
-        allJsLoaded: function() {
-            $('body').append('<div class="modal hide fade modal-big" id="beta-modal"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button><h3>Beta++</h3></div><div class="modal-body"><h2>Renkler</h2><table class="table"><tr><td>Arkaplan</td><td>Yazılar</td><td>Bağlantılar</td></tr><tr><td><input id="eksibeta-colorpicker-bg"></td><td><input id="eksibeta-colorpicker-text"></td><td><input id="eksibeta-colorpicker-link"></td></tr></table></div></div>');
+        firstPartLoaded: function() {
             $('head').append(
                 '<style>' + css + '</style>'
             );
+
             betaApp.updatePageColor();
+
+            if ($('#topic').length > 0) {
+                $('#aside').remove();
+                $('#content-section').css({
+                    "width": '994px'
+                });
+            }
+        },
+
+        allJsLoaded: function() {
+            $('body').append('<div class="modal hide fade modal-big" id="beta-modal"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button><h3>Beta++</h3></div><div class="modal-body"><h2>Renkler</h2><table class="table"><tr><td>Arkaplan</td><td>Yazılar</td><td>Bağlantılar</td></tr><tr><td><input id="eksibeta-colorpicker-bg"></td><td><input id="eksibeta-colorpicker-text"></td><td><input id="eksibeta-colorpicker-link"></td></tr></table></div></div>');
+
+
             betaApp.injectThemeGallery();
 
             $('#eksibeta-colorpicker-bg').iris({
@@ -199,35 +212,31 @@ function main() {
             $('#top-navigation > ul').prepend(
                 "<li><a href='#' id='open-beta-modal'>Beta++</li>"
             );
-
-            if ($('#topic').length > 0) {
-                $('#aside').remove();
-                $('#content-section').css({
-                    "width": '994px'
-                });
-            }
-
-            $('.topic-list, #entry-list').addClass('unstyled');
         }
     };
     
     $.getScript(
         "https://raw.github.com/cnkt/eksi-beta/master/ui/js/yepnope.js",
         function() {
-            yepnope({
-                load: [
-                    '//cdnjs.cloudflare.com/ajax/libs/json2/20110223/json2.js',
-                    '//ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/jquery-ui.min.js',
-                    'https://raw.github.com/Automattic/Iris/master/dist/iris.js',
-                    'https://raw.github.com/cnkt/eksi-beta/master/ui/js/twitter-bootstrap/js/bootstrap-modal.js',
-                    'https://raw.github.com/andris9/jStorage/master/jstorage.js',
-
-                    'https://raw.github.com/Automattic/Iris/master/src/iris.min.css'
-                ],
-                complete: function() {
-                    betaApp.allJsLoaded();
+            yepnope([
+                {
+                    load: ['//cdnjs.cloudflare.com/ajax/libs/json2/20110223/json2.js', 'https://raw.github.com/andris9/jStorage/master/jstorage.js'],
+                    complete: function() {
+                        betaApp.firstPartLoaded();
+                    }
+                },
+                {
+                    load: [
+                        '//ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/jquery-ui.min.js',
+                        'https://raw.github.com/Automattic/Iris/master/dist/iris.js',
+                        'https://raw.github.com/cnkt/eksi-beta/master/ui/js/twitter-bootstrap/js/bootstrap-modal.js',
+                        'https://raw.github.com/Automattic/Iris/master/src/iris.min.css'
+                    ],
+                    complete: function() {
+                        betaApp.allJsLoaded();
+                    }
                 }
-            })
+            ]);
         }
     );
 }
