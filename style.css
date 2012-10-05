@@ -151,6 +151,23 @@
 }
 
 
+
+
+.clearfix {
+    *zoom: 1;
+}
+
+.clearfix:before,
+.clearfix:after {
+    display: table;
+    line-height: 0;
+    content: "";
+}
+
+.clearfix:after {
+    clear: both;
+}
+
 .iris-picker .iris-strip {
     position: absolute !important;
     right: 0;
@@ -166,4 +183,23 @@
         width: auto;
         margin-left: auto;
     }
+}
+
+.eksibeta-theme-sample {
+    border: 1px solid #fff;
+    box-shadow: 0 0 20px #ccc;
+    cursor: hand;
+    float: left;
+    height: 200px;
+    margin: 20px 20px 20px 0;
+    width: 100px;
+}
+
+.eksibeta-theme-sample .theme-name {
+    background: #fff;
+    color: #333;
+}
+
+.eksibeta-theme-sample div {
+    height: 50px;
 }
