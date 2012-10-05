@@ -155,3 +155,15 @@
     position: absolute !important;
     right: 0;
 }
+
+.modal-big {
+    width: 700px;
+    margin-left: -350px;
+}
+
+@media (max-width: 767px) {
+    .modal-big {
+        width: auto;
+        margin-left: auto;
+    }
+}
