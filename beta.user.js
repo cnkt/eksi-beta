@@ -23,53 +23,56 @@ function main() {
             });
         },
 
-        addCssToPage: function(url) {
-            $("<link>")
-                .appendTo($('head'))
-                .attr({type : 'text/css', rel : 'stylesheet'})
-                .attr('href', url);
+        allJsLoaded: function() {
+            $('#background-chooser').iris({
+                hide: false,
+                change: function(event, ui) {
+                    $("body").css( "color", ui.color.toString() )
+                }
+            });
+            $('body').on('click', '#open-beta-modal', function(e) {
+                e.preventDefault();
+                $modal = $('#beta-modal');
+                $modal.modal('show');
+                console.log('burda');
+            });
+
+            $('#top-navigation > ul').prepend(
+                "<li><a href='#' id='open-beta-modal'>Beta++</li>"
+            );
+
+            if ($('#topic').length > 0) {
+                $('#aside').remove();
+                $('#content-section').css({
+                    "width": '994px'
+                });
+            }
+
+            betaApp.changePageBgColor('#ccc');
         }
     };
+    
+    $('head').append('<style>.iris-picker .iris-strip{position:absolute}</style>');
 
-    betaApp.addCssToPage('https://raw.github.com/cnkt/eksi-beta/master/ui/js/iris/iris.min.css');
-    betaApp.addCssToPage('https://raw.github.com/cnkt/eksi-beta/master/ui/js/twitter-bootstrap/css/bootstrap.min.css');
-
+    
+    $('body').append('<div class="modal hide fade" id="beta-modal"> <div class="modal-header"> <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button> <h3>Beta++</h3> </div> <div class="modal-body"> <h2>Arkaplan Rengi</h2> <input id="background-chooser"> </div> </div> ');
+    
     $.getScript(
         "https://raw.github.com/cnkt/eksi-beta/master/ui/js/yepnope.js",
         function() {
             yepnope({
                 load: [
+                    'https://raw.github.com/Automattic/Iris/master/src/iris.min.css',
                     'https://raw.github.com/cnkt/eksi-beta/master/ui/js/twitter-bootstrap/js/bootstrap-modal.js',
                     '//ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/jquery-ui.min.js',
-                    'https://raw.github.com/cnkt/eksi-beta/master/ui/js/iris/iris.js'
-
-                ]
+                    'https://raw.github.com/Automattic/Iris/master/dist/iris.js'
+                ],
+                complete: function() {
+                    betaApp.allJsLoaded();
+                }
             })
         }
     );
-
-    //$('body').append('<div class="modal hide fade" id="beta-modal"> <div class="modal-header"> <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button> <h3>Beta++</h3> </div> <div class="modal-body"> <h2>Arkaplan Rengi</h2> <input id="background-chooser"> </div> </div> ');
-
-
-    $('body').on('click', '#open-beta-modal', function(e) {
-        e.preventDefault();
-        $modal = $('#beta-modal');
-        $modal.modal('show');
-    });
-
-
-    $('#top-navigation > ul').prepend(
-        "<li><a href='#' id='open-beta-modal'>Beta++</li>"
-    );
-
-    if ($('#topic').length > 0) {
-        $('#aside').remove();
-        $('#content-section').css({
-            "width": '100%'
-        });
-    }
-
-    betaApp.changePageBgColor('#ccc');
 }
 
 addJQuery(main);
