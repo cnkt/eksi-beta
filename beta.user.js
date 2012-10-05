@@ -81,7 +81,56 @@ function main() {
                 "bgColor": "#343838",
                 "linkColor": "#00B4CC",
                 "fontColor": "#008C9E"
+            },
+            "zeytin": {
+                "name": "Zeytin",
+                "bgColor": "#778B71",
+                "linkColor": "#9CC222",
+                "fontColor": "#1E311D"
+            },
+            "expandables": {
+                "name": "Expandables",
+                "bgColor": "#BDC1C9",
+                "linkColor": "#B4662C",
+                "fontColor": "#221E21"
+            },
+            "snow-white": {
+                "name": "Snow White",
+                "bgColor": "#D6D5DA",
+                "linkColor": "#899FAD",
+                "fontColor": "#3F4147"
+            },
+            "sade": {
+                "name": "Sade",
+                "bgColor": "#F4F7FE",
+                "linkColor": "#5196BF",
+                "fontColor": "#333"
+            },
+            "karam": {
+                "name": "Karam",
+                "bgColor": "#1B1B1B",
+                "linkColor": "#F1684E",
+                "fontColor": "#F4F4F4"
+            },
+            "ilik": {
+                "name": "Ilık",
+                "bgColor": "#222222",
+                "linkColor": "#0077AF",
+                "fontColor": "#777777"
+            },
+            "goze-acik": {
+                "name": "Göze Açık",
+                "bgColor": "#EDEDE4",
+                "linkColor": "#F3491D",
+                "fontColor": "#958B7B"
+            },
+            "vahsi-bati": {
+                "name": "Vahşi Batı",
+                "bgColor": "#4C3327",
+                "linkColor": "#D9B172",
+                "fontColor": "#CB8C1D"
             }
+
         },
 
         injectThemeGallery: function() {
