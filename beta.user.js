@@ -29,11 +29,16 @@ beta.isBetaThemesPage = function() {
     return false;
 };
 beta.injectTheme = function(themeUid) {
-    $('head').append('<link rel="stylesheet" href="' + beta.themeUrlTemplate.replace('{{theme-uid}}', themeUid) + '/theme.css" type="text/css" />');
+    var cacheBuster = new Date().getTime();
+    $('head').append('<link rel="stylesheet" href="' + beta.themeUrlTemplate.replace('{{theme-uid}}', themeUid) + '/theme.css?' + cacheBuster + '" type="text/css" />');
 }
 
 $(function() {
     $('#top-navigation >ul').prepend('<li><a href="https://eksisozluk.com/beta-temalari--3566713" id="runBeta">Beta++</a></li>');
+
+    if (GM_getValue('betaTheme') !== 'undefined') {
+        beta.injectTheme(GM_getValue('betaTheme'));
+    }
 
     if (beta.isBetaThemesPage()) {
         var entryDiv = $('#li30471207 .content');
