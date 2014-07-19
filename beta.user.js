@@ -29,7 +29,7 @@ beta.isBetaThemesPage = function() {
     return false;
 };
 beta.injectTheme = function(themeUid) {
-    $('head').append('<link rel="stylesheet" href="' + beta.themeUrlTemplate.replace('{{theme-uid}}', themeUid) + '" type="text/css" />');
+    $('head').append('<link rel="stylesheet" href="' + beta.themeUrlTemplate.replace('{{theme-uid}}', themeUid) + '/theme.css" type="text/css" />');
 }
 
 $(function() {
@@ -43,6 +43,8 @@ $(function() {
             e.preventDefault();
             $element = $(e.target);
             var themeUid = $element.attr('data-theme-uid');
+            beta.injectTheme(themeUid);
+            GM_setValue('betaTheme', themeUid);
         });
 
         beta.downloadThemeList();
