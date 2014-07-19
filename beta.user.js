@@ -22,7 +22,7 @@ beta.downloadThemeList = function() {
 beta.isBetaThemesPage = function() {
     var url = document.URL;
 
-    if (url.indexOf('beta-temalari--3566713') > -1) {
+    if (url.indexOf('3566713') > -1) {
         return true;
     }
 
