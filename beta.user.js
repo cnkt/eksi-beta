@@ -36,7 +36,7 @@ beta.injectTheme = function(themeUid) {
 $(function() {
     $('#top-navigation >ul').prepend('<li><a href="https://eksisozluk.com/beta-temalari--3566713" id="runBeta">Beta++</a></li>');
 
-    if (GM_getValue('betaTheme') === 'undefined' {
+    if (GM_getValue('betaTheme') === 'undefined') {
         GM_setValue('betaTheme', 'teddybearogullari');
     }
 
