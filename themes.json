@@ -1,5 +1,8 @@
 {
     "themes": [
-        {"title": "teddybearogullari"}
+        {
+            "title": "Teddybearogullari",
+            "uid": "teddybearogullari"
+        }
     ]
 }
