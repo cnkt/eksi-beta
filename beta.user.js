@@ -36,9 +36,11 @@ beta.injectTheme = function(themeUid) {
 $(function() {
     $('#top-navigation >ul').prepend('<li><a href="https://eksisozluk.com/beta-temalari--3566713" id="runBeta">Beta++</a></li>');
 
-    if (GM_getValue('betaTheme') !== 'undefined') {
-        beta.injectTheme(GM_getValue('betaTheme'));
+    if (GM_getValue('betaTheme') === 'undefined' {
+        GM_setValue('betaTheme', 'teddybearogullari');
     }
+
+    beta.injectTheme(GM_getValue('betaTheme'));
 
     if (beta.isBetaThemesPage()) {
         var entryDiv = $('#li30471207 .content');
